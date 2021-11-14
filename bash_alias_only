@@ -1,0 +1,1102 @@
+
+######################################################################################################################################################
+###### ALIASES ###### ALIASES ###### ALIASES ###### ALIASES ###### ALIASES ###### ALIASES ###### ALIASES ###### ALIASES ###### ALIASES ###### ALIASES ######
+######################################################################################################################################################
+
+
+
+##################################################
+# App-specific					 #
+##################################################
+
+alias audio='ncmpcpp'								# music player
+alias daemon-status='for a in deluged deluge rtorrent; do  (ps -u $USER|grep $a$ > /dev/null && echo $a running.) || echo $a not running.; done'	# list the status of the daemons :p
+alias daggerfall='dosbox -conf ~/.dosbox.conf.daggerfall'			# launch dosbox with a preset configuration for Daggerfall
+# alias deluge-link='echo http://'`hostname`':'$USER_WPRT'/'
+alias ftp='ncftp Personal'
+alias instaluj='sudo pacman-color -S'
+alias links2g='links2 -g'
+alias nano='nano -W -m'								# disable annoying line wrapping
+alias pacclean='sudo yaourt -Scc' 						# clean package cache
+alias pacin='sudo yaourt -S'  							# install a specific package
+alias pacman='yaourt' 								# switches from Pacman to Yaourt so we can troll the AUR
+alias pacout='sudo yaourt -Rs'							# Remove a specific package
+alias pacsync='sudo yaourt -Sy'   						# Sync
+alias pacup='sudo yaourt -Syu'							# Sync & Update
+alias rc='ssh ${MEDIAPCHOSTNAME} env DISPLAY=:0.0 rhythmbox-client --no-start'	# remote control for Rhythmbox on an Ubuntu Media PC
+alias scrot='scrot -c -d 7'
+alias skypefix='mv ~/.Skype/shared.xml ~/.Skype/shared~.xml'			# Skype fix for a crash that results in inability to log back in
+alias spotify_next='$HOME/spotifycmd/spotify_cmd.exe next; $HOME/spotifycmd/spotify_cmd.exe status'
+alias spotify_playpause='$HOME/spotifycmd/spotify_cmd.exe playpause'
+alias spotify_prev='$HOME/spotifycmd/spotify_cmd.exe prev; $HOME/spotifycmd/spotify_cmd.exe status'
+alias spotify_status='$HOME/spotifycmd/spotify_cmd.exe status'
+alias spotify_stop='$HOME/spotifycmd/spotify_cmd.exe stop'
+alias ss='gnome-screensaver-command -a'
+alias start-deluged='start-stop-daemon -S --pidfile $HOME/.deluged.pid -u $USER -d $HOME -a /usr/bin/deluged -- --pidfile $HOME/.deluged.pid'
+alias start-deluge-webui='start-stop-daemon -S --pidfile $HOME/.deluge-web.pid --background --make-pidfile -u $USER -d $HOME -a /usr/bin/deluge --  -u web'
+alias start-rtorrent='(screen -ls|grep rtorrent > /dev/null || (screen -dmS rtorrent rtorrent && false)) && echo rtorrent is already running.'
+alias start-vnc='vncserver :$USER_VPRT'
+alias stop-deluged='start-stop-daemon -K --pidfile $HOME/.deluged.pid -u $USER -d $HOME -a /usr/bin/deluged -- --pidfile $HOME/.deluged.pid || killall -v -u $USER deluged'
+alias stop-deluge-webui='start-stop-daemon -K --pidfile $HOME/.deluge-web.pid --make-pidfile -u $USER -d $HOME -a /usr/bin/deluge --  -u web;rm $HOME/.deluge-web.pid;'
+alias stop-rtorrent='killall -u $USER rtorrent -q || echo rtorrent is not running'
+alias stop-vnc='vncserver -kill :$USER_VPRT'
+alias tetris='bastet' 								# bastardly tetris... awesome but deadly
+alias tvtime-video0='tvtime-configure -d /dev/video0'
+alias tvtime-video1='tvtime-configure -d /dev/video1'
+alias tvtime-video2='tvtime-configure -d /dev/video2'
+alias tvtime-video3='tvtime-configure -d /dev/video3'
+alias tvtime-video4='tvtime-configure -d /dev/video4'
+alias tvtime-video5='tvtime-configure -d /dev/video5'
+alias wgeturlfromfile='wget -r -l1 -H -t1 -nd -N -np -A.jpg -erobots=off -i'	# -i file.txt
+alias wget='wget -c'
+alias yr='yaourt -Rs -C'
+alias yss='yaourt -Ss -C'
+alias ys='yaourt -S -C'
+alias ysyu='yaourt -Syu -C'
+alias ysy='yaourt -Sy -C'
+
+
+
+##################################################
+# Apt-cache stuff				 #
+##################################################
+
+alias aptadd='sudo apt-cache add'
+alias aptdepends='apt-cache depends'
+alias aptdotty='sudo apt-cache dotty'
+alias aptdumpavail='sudo apt-cache dumpavail'
+alias aptdump='apt-cache dump'
+alias aptgencaches='sudo apt-cache gencaches'
+alias aptpkgnames='apt-cache pkgnames'
+alias aptpolicy='apt-cache policy'
+alias aptrdepends='apt-cache rdepends'
+alias aptsearch='apt-cache search'
+alias aptshowpkg='apt-cache showpkg'
+alias aptshowsrc='apt-cache showsrc'
+alias aptshow='apt-cache show'
+alias aptstats='apt-cache stats'
+alias aptunmet='apt-cache unmet'
+alias aptxvcg='sudo apt-cache xvcg'
+
+
+
+##################################################
+# Apt-get stuff					 #
+##################################################
+
+alias autoremove='sudo apt-get autoremove'
+alias check='sudo apt-get check'
+alias dist-upgrade='sudo apt-get dist-upgrade'
+alias dselect-upgrade='sudo apt-get dselect-upgrade'
+# alias source='sudo apt-get source'
+
+
+
+##################################################
+# Apt-history Stuff				 #
+##################################################
+
+alias historya='apt-history'
+alias historyi='apt-history install'
+alias historyre='apt-history remove'
+alias historyro='apt-history rollback'
+alias historyu='apt-history upgrade'
+
+
+
+##################################################
+# Aptitude stuff				 #
+##################################################
+
+alias autoclean='sudo aptitude autoclean'
+alias build-dep='sudo aptitude build-dep'
+alias changelog='aptitude changelog'
+alias clean='sudo aptitude clean'
+alias download='aptitude download'
+alias forbid-version='sudo aptitude forbid-version'
+alias forget-new='sudo aptitude forget-new'
+alias full-upgrade='sudo aptitude full-upgrade'
+alias hold='sudo aptitude hold'
+alias install='sudo aptitude install'
+alias linux-image='aptitude search linux-image'			# linux-image kernel update check
+alias markauto='sudo aptitude markauto'
+alias purge='sudo aptitude purge'
+alias reinstall='sudo aptitude reinstall'
+alias remove='sudo aptitude remove'
+alias search='aptitude search'
+alias show='aptitude show'
+alias unhold='sudo aptitude unhold'
+alias unmarkauto='sudo aptitude unmarkauto'
+alias update='sudo aptitude update'
+alias upgrade='sudo aptitude safe-upgrade'
+alias why-not='aptitude why-not'
+alias why='aptitude why'
+
+
+
+##################################################
+# Chown substitution				 #
+##################################################
+
+alias chown-backgrounds='sudo chown -R $USER:$USER ~/Pictures/Backgrounds'
+alias chown-backups='sudo chown -R $USER:$USER ~/Backups'
+alias chown-books='sudo chown -R $USER:$USER ~/eBooks'
+alias chown-desktop='sudo chown -R $USER:$USER ~/Desktop'
+alias chown-documents='sudo chown -R $USER:$USER ~/Documents'
+alias chown-downloads='sudo chown -R $USER:$USER ~/Downloads'
+alias chown-drive-c='sudo chown -R $USER:$USER ~/.wine/drive_c'
+alias chown-home='sudo chown -R $USER:$USER ~/'
+alias chown-images='sudo chown -R $USER:$USER ~/Images'
+alias chown-localhost='sudo chown -R $USER:$USER ~/var/www'
+alias chown-music='sudo chown -R $USER:$USER ~/Music'
+alias chown-nautilus-scripts='sudo chown -R $USER:$USER ~/.gnome2/nautilus-scripts'
+alias chown-packages='sudo chown -R $USER:$USER ~/Packages'
+alias chown-pictures='sudo chown -R $USER:$USER ~/Pictures'
+alias chown-ppc='sudo chown -R $USER:$USER ~/PPC'
+alias chown-public='sudo chown -R $USER:$USER ~/Public'
+alias chown='sudo chown -R $USER:$USER'
+alias chown-temp='sudo chown -R $USER:$USER ~/Temp'
+alias chown-torrents='sudo chown -R $USER:$USER ~/Torrents'
+alias chown-ubuntu-texts='sudo chown -R $USER:$USER ~/Documents/"Ubuntu Texts"'
+alias chown-videos='sudo chown -R $USER:$USER ~/Videos'
+
+
+
+##################################################
+# Command substitution				 #
+##################################################
+
+alias abs='sudo abs'
+alias a='ssh-agent;ssh-add'
+alias bt='aria2c --max-upload-limit=10K --seed-time=60 --listen-port=8900-8909'		# shortcut for downloading a torrent file on the command line
+alias c='clear'
+alias ci='vim'
+alias ck='killall conky && conky -d'
+alias cls='clear'
+alias contents='/bin/tar -tzf'								# can View the contents of a Tar file
+alias cp='cp -v'
+alias d_='ssh 192.168.1.4'
+alias dr='dirs -v'
+alias ds_='dig +noauthority +noadditional +noqr +nostats +noidentify +nocmd +noquestion +nocomments'		# short and sweet output from dig(1)
+alias e='espeak'
+alias egrep2='egrep –color=auto'
+alias enote='vi ~/todo;~/motd.pl'
+alias fgrep='fgrep –color=auto'
+alias ge='geany'
+alias go='startx'
+alias grep='grep --color=auto'								# highlight matched pattern
+alias g_='mocp -G'
+alias halt='sudo /sbin/halt'
+alias h='history | grep $1'
+alias hib='sudo pm-hibernate'
+alias ie='wine iexplore.exe'								# browse the Internet using Internet Explorer
+alias im='centerim'  									# terminal based instant messaging client
+alias img='imgurbash' 									# uploads image to
+imgur
+alias irc='irssi' 									# terminal based IRC
+# alias irssi='screen -wipe; screen -A -U -x -R -S irssi irssi'				# for creating screen session containing IRSSI, named irssi, while checking if existing session is created
+alias jl='jobs -l'
+alias kfx='killall firefox-bin'
+alias kgp='killall gnome-panel'
+alias k='kill'
+alias kk='sendmail -d0.4 -bv root |less'
+alias kn='killall nautilus'
+alias last='last -a'
+alias lock='clear && vlock -c'								# clear and lock console (non-X) terminal
+alias logs='tail -f /var/log/messages /var/log/*log'
+alias m='~/bin/motd.pl'
+alias mc='metacafe-dl -t'
+alias me='vi ~/.muttrc'
+alias mkdir='mkdir -p -v'
+alias mktd='tdir=`mktemp -d` && cd $tdir'						# make a temp dir, then immediately cd into it
+alias m=mutt
+alias more='less'
+alias mp='screen -d -m mousepad'
+alias mv='mv -v'
+alias na='nano'
+alias n='nautilus & exit'
+alias np='mpc --format "np: [[%artist%] - [%title%] - 					#[[%album%] ##[%track%]#]]|[%file%]" | head -n 1'
+alias nq='nautilus -q'
+alias oe='wine msimn.exe'								# read email with Outlook Express
+alias packup='/bin/tar -czvf'								# compress a file in tar format
+alias parts='cat /proc/partitions'
+# alias paste='ix'  									# pastes to ix.ox pastebin service
+alias paste='pastebinit'
+alias path='echo -e ${PATH//:/\\n}'
+alias pe='vi ~/.procmailrc'
+alias pg='ps aux | grep'*								# requires an argument
+alias pi='`cat ~/.pi | grep ' ; alias addpi='echo "cd `pwd`" >> ~/.pi'			# fast access to any of your favorite directory.
+alias ping='ping -c 10'
+alias pjet='enscript -h -G -fCourier9 -d $LPDEST'           				# pretty-print using enscript
+alias print='/usr/bin/lp -o nobanner -d $LPDEST'            				# assumes LPDEST is defined (default printer)
+alias ps='ps auxf'
+alias p_='for ((n=0;n<1;n++)); do dd if=/dev/urandom count=1 2> /dev/null | uuencode -m -| sed -ne 2p | cut -c-8; done' # creating password
+alias :q='exit'
+alias q='exit'
+alias rcci='svn ci ~/rc/'
+alias rcup='~/bin/rc_sync.sh'
+alias rd='cd "`pwd -P`"' 								# if in directory containing symlink in path, change to "real" path
+alias real_location='readlink -f' 							# get real location of file
+alias reboot='sudo /sbin/reboot'
+# alias reboot='sudo shutdown -r now'   						# easy shutdown management
+alias refresh='nautilus -q && gconftool-2 --shutdown && pkill gnome-panel'		# safely close/refresh nautilus and gnome-panel
+alias rgrep='find . \( ! -name .svn -o -prune \) -type f -print0 | xargs -0 grep'	# rgrep: recursive grep without .svn
+alias rh='rehash'
+alias rmdir='rmdir -v'
+alias rm_='rm -iv'
+alias root='sudo bash -l'								# generic shortcut for switching to root user depending on system
+# alias root='sudo -i'									# generic shortcut for switching to root user depending on system
+# alias root='su -'									# generic shortcut for switching to root user depending on system
+alias scx='screen -x'
+alias sdi='sudo dpkg -i'
+alias se='vi ~/.screenrc'
+alias sg='sudo geany'
+alias shutdown='sudo shutdown -h now'							# proper restart
+alias shutdownde='for ((;;)) do pgrep wget ||shutdown -h now; sleep 5; done'		# if download end, shutdown
+alias sn='sudo nano'
+alias split='split -d'
+alias sr='screen -d -RR'
+# alias s='sudo'
+# alias s_='screen -X screen'; s top; s vi; s man ls;					# start a new command in a new screen window
+alias sshdo='ssh -q -t root@localhost -- cd $PWD \&\& sudo'				# an alternative to sudo
+alias sus='sudo pm-suspend'
+alias svi='sudo vim'
+alias tc='tar cfvz'
+alias te='tail -50f /var/log/qmail/qmail-send/current | elog'
+alias tf='tail -50f /var/log/iptables.log'
+alias tm='tail -50f /var/log/messages.log'
+alias ts='tail -50f /var/log/auth.log'
+alias tweet_='bti'
+alias tx='tar xfvz'
+alias u='mocp -P && sudo pm-suspend ; sleep 1s && mocp -U && setxkbmap -option terminate:ctrl_alt_bksp && xmodmap .config/caps-esc && ~/.fehbg'	# something is messed up somewhere, dirty fix
+alias unpack='/bin/tar -xzvpf'								# uncompress a a Tar file
+alias updatefont='fc-cache -v -f'
+alias url='tinyurl'
+alias urlping="ping -q -c 1 www.google.com|awk -F/ 'END{print $5}'"			# do one ping to URL: good in MRTG gauge graph to monitor connectivity
+alias v='zless -N'									# -N means display line numbers (turn off line numbers with -n)
+alias ve='vi ~/.vimrc'
+alias vi='vim'
+alias web='w3m'   									# terminal based web browser
+alias which='type -all'
+alias win='/media/win'
+alias wtf='watch -n 1 w -hs'
+alias xee='cat /var/log/Xorg.0.log |grep EE'
+alias xevs="xev | grep 'keycode\|button'"						# only show button events for xev
+alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""'
+alias x='startx'
+alias xww='cat /var/log/Xorg.0.log |grep WW'
+alias z='zenity --info --text="You will not believe it, but your command has finished now! :-)" --display :0.0'	# get a desktop notification from the terminal
+alias zen='fortune /usr/share/fortune/zen'
+
+
+
+##################################################
+# Command substitution (for typos)		 #
+##################################################
+
+alias findgrep='grepfind'
+alias mann='man'
+alias moer='more'
+alias moew='more'
+alias updtae='update'
+alias vf='cd'
+alias xs='cd'
+alias yauort='yaourt'
+alias yoaurt='yaourt'
+alias youart='yaourt'
+alias yuaort='yaourt'
+alias yuoart='yaourt'
+
+
+
+##################################################
+# Computer cleanup				 #
+##################################################
+
+if [ -e "/usr/bin/dpkg" ] ; then
+    alias cleanup="sudo apt-get -y autoclean && sudo apt-get -y autoremove && sudo apt-get -y clean && sudo apt-get -y remove && sudo deborphan | xargs sudo apt-get -y remove --purge && sudo aptitude purge `dpkg --get-selections | grep deinstall | awk '{print $1}'`"
+    alias configpurge="sudo aptitude purge `dpkg --get-selections | grep deinstall | awk '{print $1}'`"	# purge configuration files of removed packages on debian systems
+    alias kernelcleanup="dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge"										# remove all unused Linux Kernel headers, images & modules
+    alias orphaned='sudo deborphan | xargs sudo apt-get -y remove --purge'
+fi
+alias tp='trash-put'											# sends files to trash instead of perm deleting w/rm
+alias trash='rm -fr ~/.Trash'
+
+
+
+##################################################
+# DD substitution				 #
+##################################################
+
+alias backup-sda='sudo dd if=/dev/hda of=/dev/sda bs=64k conv=notrunc,noerror'		# to backup the existing drive to a USB drive
+alias cdcopy='sudo dd if=/dev/cdrom of=cd.iso'						# for cdrom
+alias cdiso='sudo dd if=/dev/hda of=cd.iso bs=2048 conv=sync,notrunc'			# to make an iso image of a CD
+alias dd-sda-full='sudo dd if=/dev/urandom of=/dev/sda bs=8b conv=notrunc,noerror'	# to wipe hard drive with random data option (1)
+alias dd-sda-r='sudo dd if=/dev/urandom of=/dev/sda bs=102400'				# to wipe hard drive with random data option (2)
+alias dd-sda='sudo dd if=/dev/zero of=/dev/sda conv=notrunc'				# to wipe hard drive with zero
+alias dd-sdb-full='sudo dd if=/dev/urandom of=/dev/sdb bs=8b conv=notrunc,noerror'	# to wipe hard drive with random data option (1)
+alias dd-sdb-r='sudo dd if=/dev/urandom of=/dev/sdb bs=102400'				# to wipe hard drive with random data option (2)
+alias dd-sdb='sudo dd if=/dev/zero of=/dev/sdb conv=notrunc'				# to wipe hard drive with zero
+alias dd-sdc-full='sudo dd if=/dev/urandom of=/dev/sdc bs=8b conv=notrunc,noerror'	# to wipe hard drive with random data option (1)
+alias dd-sdc-r='sudo dd if=/dev/urandom of=/dev/sdc bs=102400'				# to wipe hard drive with random data option (2)
+alias dd-sdc='sudo dd if=/dev/zero of=/dev/sdc conv=notrunc'				# to wipe hard drive with zero
+alias dd-sdd-full='sudo dd if=/dev/urandom of=/dev/sdd bs=8b conv=notrunc,noerror'	# to wipe hard drive with random data option (1)
+alias dd-sdd-r='sudo dd if=/dev/urandom of=/dev/sdd bs=102400'				# to wipe hard drive with random data option (2)
+alias dd-sdd='sudo dd if=/dev/zero of=/dev/sdd conv=notrunc'				# to wipe hard drive with zero
+alias dd-sde-full='sudo dd if=/dev/urandom of=/dev/sde bs=8b conv=notrunc,noerror'	# to wipe hard drive with random data option (1)
+alias dd-sde-r='sudo dd if=/dev/urandom of=/dev/sde bs=102400'				# to wipe hard drive with random data option (2)
+alias dd-sde='sudo dd if=/dev/zero of=/dev/sde conv=notrunc'				# to wipe hard drive with zero
+alias dd-sdf-full='sudo dd if=/dev/urandom of=/dev/sdf bs=8b conv=notrunc,noerror'	# to wipe hard drive with random data option (1)
+alias dd-sdf-r='sudo dd if=/dev/urandom of=/dev/sdf bs=102400'				# to wipe hard drive with random data option (2)
+alias dd-sdf='sudo dd if=/dev/zero of=/dev/sdf conv=notrunc'				# to wipe hard drive with zero
+alias dd-sdg-full='sudo dd if=/dev/urandom of=/dev/sdg bs=8b conv=notrunc,noerror'	# to wipe hard drive with random data option (1)
+alias dd-sdg-r='sudo dd if=/dev/urandom of=/dev/sdg bs=102400'				# to wipe hard drive with random data option (2)
+alias dd-sdg='sudo dd if=/dev/zero of=/dev/sdg conv=notrunc'				# to wipe hard drive with zero
+alias diskcopy='sudo dd if=/dev/dvd of=/dev/cdrecorder'
+alias floppycopy='sudo dd if=/dev/fd0 of=floppy.image'					# to duplicate a floppy disk to hard drive image file
+alias partitioncopy='sudo dd if=/dev/sda1 of=/dev/sda2 bs=4096 conv=notrunc,noerror'	# to duplicate one hard disk partition to another hard disk partition
+alias restore-sda='sudo dd if=/dev/sda of=/dev/hda bs=64k conv=notrunc,noerror'		# to restore from the USB drive to the existing drive
+alias scsicopy='sudo dd if=/dev/scd0 of=cd.iso'						# if cdrom is scsi
+
+
+
+##################################################
+# Defragmenting and Fragmentation-Checking	 #
+# Tools						 #
+##################################################
+
+alias defrag-home='defrag ~'			# uses 'defrag' function
+alias defrag-root='defrag /root'		# uses 'defrag' function
+alias defrag-system='defrag /'			# uses 'defrag' function
+alias defrag2-home='defrag2 ~'			# uses 'defrag2' function
+alias defrag2-root='defrag2 /root'		# uses 'defrag2' function
+alias defrag2-system='defrag2 /'		# uses 'defrag2' function
+alias fragcheck-home='fragcheck ~'		# uses 'fragcheck' function
+alias fragcheck-root='fragcheck /root'		# uses 'fragcheck' function
+alias fragcheck-system='fragcheck /'		# uses 'fragcheck' function
+alias fragcheck2-home='fragcheck2 ~'		# uses 'fragcheck2' function
+alias fragcheck2-root='fragcheck2 /root'	# uses 'fragcheck2' function
+alias fragcheck2-system='fragcheck2 /'		# uses 'fragcheck2' function
+
+
+
+##################################################
+# Directory shortcuts				 #
+##################################################
+
+alias back='cd $OLDPWD'
+alias backgrounds='cd ~/Pictures/Backgrounds'
+alias backups='cd ~/Backups'
+alias books='cd ~/eBooks'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias documents='cd ~/Documents'
+alias downloads='cd ~/Downloads'
+alias dev='cd ~/dev'
+alias auth_parsers='cd ~/dev/auth_parsers'
+alias auth_tools='cd ~/dev/auth_tools'
+alias drive-c='cd ~/.wine/drive_c'
+alias dropbox='cd ~/Dropbox'
+alias home='cd ~/'
+alias images='cd ~/Images'
+alias localhost='cd /var/www'
+alias movies='cd ~/Videos'
+alias music='cd ~/Music'
+alias nautilus-scripts='cd ~/.gnome2/nautilus-scripts'
+alias packages='cd ~/Packages'
+alias packets='cd ~/.packets'
+alias pictures='cd ~/Pictures'
+alias ppc='cd ~/PPC'
+alias public='cd ~/Public'
+alias temp='cd ~/Temp'
+# alias test='cd ~/.test'
+alias torrents='cd ~/Torrents'
+alias ubuntu-texts='cd ~/Documents/"Ubuntu Texts"'
+alias videos='cd ~/Videos'
+alias webdesign='cd ~/Web/Design'
+alias whereami='display_info'
+
+
+
+##################################################
+# Espeak commands				 #
+##################################################
+
+alias espeak-file='espeak -s 150 -f'
+alias espeak-us='espeak -v en-us -s 150'
+alias espeak-wav='espeak -s 150 -w voice.wav'
+alias espeak-wav-file='espeak -s 150 -w voice.wav -f'
+
+
+
+##################################################
+# Git stuff					 #
+##################################################
+
+alias gitouch='find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
+alias gitup='git pull'
+alias gitci='git commit -m'
+alias gitco='git clone'
+alias gita='git add'
+alias gitb='git branch'
+alias gits='git status'
+alias gitc='git checkout'
+
+
+
+##################################################
+# Hardware Shortcuts				 #
+##################################################
+
+alias 0='amixer set PCM 0'
+alias -- -='amixer set PCM 2-'
+alias +='amixer set PCM 2+'
+alias blankcd='cdrecord -v dev=/dev/cdrom blank=fast gracetime=3'
+alias blankdvd='cdrecord -v dev=/dev/dvd blank=fast gracetime=3'
+alias blueoff='sudo /etc/rc.d/bluetooth stop'
+alias blueon='sudo /etc/rc.d/bluetooth start'
+alias blueres='sudo /etc/rc.d/bluetooth restart'
+alias brand='growisofs -Z /dev/cdrw -v -l -R -J -joliet-long'
+alias burnaudiocd='mkdir ./temp && for i in *.[Mm][Pp]3;do mpg123 -w "./temp/${i%%.*}.wav" "$i";done;cdrecord -pad ./temp/* && rm -r ./temp'	# burn a directory of mp3s to an audio cd
+alias cdc='eject -t /dev/cdrecorder'
+alias cdo='eject /dev/cdrecorder'
+alias cruzer='mount /media/cruzer'
+alias dvdc='eject -t /dev/dvd'
+alias dvdo='eject /dev/dvd'
+alias ipod='mount /media/ipod && cd /media/ipod'
+alias kingston='mount /media/kingston && cd /media/kingston'
+alias laptop_display='sudo cat /proc/acpi/video/VGA/LCD/brightness'		# set laptop display brightness	(path may vary depending on laptop model
+alias laptop_displays='echo <percentage> > /proc/acpi/video/VGA/LCD/brightness'	# to discover the possible values for your display
+alias mountcd='sudo mount -t is09660 /dev/sr0 /media/cdrom'
+alias mountedinfo='df -hT'
+alias mountiso='sudo mount ${1} ${2} -t iso9660 -o ro,loop=/dev/loop0'
+alias mountwin='mount -t ntfs /dev/sda1 /media/win'
+alias mp3='mount /media/mp3 && cd /media/mp3'
+alias playm='for i in *.mp3; do play $i; done'
+alias playo='for i in *.ogg; do play $i; done'
+alias playw='for i in *.wav; do play $i; done'
+alias scan='scanimage -L'
+alias sd='mount /media/sd'
+alias ucruzer='umount /media/cruzer'
+alias uipod='umount /media/ipod'
+alias ukingston='umount /media/kingston'
+alias umountiso='sudo umount /media/iso'
+alias ump3='umount /media/mp3'
+alias usd='umount /media/sd'
+alias uverbatim='umount /media/verbatim'
+alias verbatim='mount /media/verbatim && cd /media/verbatim'
+
+
+
+##################################################
+# Information					 #
+##################################################
+
+alias big='function BIG() { find . -size +${1}M -ls; }; BIG $1'				# find large files in current directory
+alias biggest='BLOCKSIZE=1048576; du -x | sort -nr | head -10'				# show biggest directories
+alias boothistory='for wtmp in `dir -t /var/log/wtmp*`; do last reboot -f $wtmp; done | less'
+alias charcount='wc -c $1'								# count number of characters in text file
+alias color1='sh ~/.scripts/termcolor1'   						# displays colorset 1
+alias color2='sh ~/.scripts/termcolor2'   						# displays colerset 2
+alias color3='sh ~/.scripts/termcolor3'   						# displays colorset 3
+alias counts='sort | uniq -c | sort -nr'						# a nice command for summarising repeated information
+alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'			# to find CPU hogs
+alias cputemp='while sleep 1; do acpi -t | osd_cat -p bottom; done &'			# to get the CPU temperature continuously on the desktop
+alias ctemp='sensors -f && sensors'							# to get the computer temperature in Fahrenheit and Celcius
+alias df='df -h -x tmpfs -x usbfs'							# displays global disk usage by partition, excluding supermounted devices
+alias directorydiskusage='du -s -k -c * | sort -rn'
+alias dir='ls --color=auto --format=vertical'
+alias diskwho='sudo iotop'
+alias dmidecode='sudo dmidecode --type 17 | more'					# check RAM sed and type in Linux
+alias ducks='ls -A | grep -v -e '\''^\.\.$'\'' |xargs -i du -ks {} |sort -rn |head -16 | awk '\''{print $2}'\'' | xargs -i du -hs {}'	# useful alias to browse your filesystem for heavy usage quickly						# to show processes reading/writing to disk
+alias du='du -h --max-depth=1'								# displays disk usage by directory, in human readable format
+alias dush='du -sm *|sort -n|tail'							# easily find megabyte eating files or directories
+alias env2='for _a in {A..Z} {a..z};do _z=\${!${_a}*};for _i in `eval echo "${_z}"`;do echo -e "$_i: ${!_i}";done;done|cat -Tsv'	# print all environment variables, including hidden ones
+alias ffind='sudo find / -name $1'
+alias free='free -m'									# RAM and SWAP detail in MBs
+alias freqwatch='watch --interval 1 "cat /proc/acpi/thermal_zone/THRM/*; cat /proc/cpuinfo | grep MHz; cat /proc/acpi/processor/*/throttling"'  # monitor cpu freq and temperature
+alias hardware='sudo lshw -html > hardware.html'					# overview of the hardware in the computer
+# alias hgrep='history | grep --color=always'						# search commands history
+alias hiddenpnps='unhide (proc|sys|brute)'						# forensic tool to find hidden processes and ports
+alias hogc='ps -e -o %cpu,pid,ppid,user,cmd | sort -nr | head'				# display the processes that are using the most CPU time and memory
+alias hogm='ps -e -o %mem,pid,ppid,user,cmd | sort -nr | head'				# display the processes that are using the most CPU time and memory
+alias la_='ls -Al'									# show hidden files
+alias l?='cat ~/technical/tips/ls'
+alias lc='ls -ltcr'       								# sort by and show change time, most recent last
+alias ldir='ls -lhA |grep ^d'
+alias ld='ls -ltr' 									# sort by date
+alias lfiles='ls -lhA |grep ^-'
+alias lf="ls -Alh --color | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"	# full ls with octal+symbolic permissions
+alias lgg='ls --color=always | grep --color=always -i'					# quick case-insenstive partial filename search
+alias lh='ls -Al' 									# show hidden files
+alias lh='ls -lAtrh' 									# sort by date and human readable
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
+alias li='ls -ai1|sort' 								# sort by index number
+alias linecount='wc -l $1'								# count number of lines in text file
+alias lk='ls -lSr'									# sort by size
+alias llllll='ls -FlaXo --color=auto'							# sort the extensions alphabetically; good for winfiles
+alias lllll='ls -Fla --full-time -o -Q --color=auto'					# whatever
+alias llll='ls -laS --color=auto'							# sort by size
+alias lll='ls -Falot --color=auto'							# sort by mod time
+alias ll_='ls -l'									# long listing
+alias l.='ls -d .[[:alnum:]]* 2> /dev/null || echo "No hidden file here..."'		# list only hidden files
+alias l='ls -hF --color'								# quick listing
+alias lm_='ls -al |more'    								# pipe through 'more'
+alias ln='ln -s'
+alias lr='ls -lR'									# recursice ls
+alias lrt='ls -lart'									# list files with last modified at the end
+alias lsam='ls -am' 									# List files horizontally
+alias lsdd='ls -latr'                                 					# sort by date
+alias lsd='ls -l | grep "^d"'								# list only directories
+alias lsize='ls --sort=size -lhr'							# list by size
+alias lsl='ls -lah'                                   					# long list, human-readable
+alias ls='ls -hF --color=auto'								# add colors for filetype recognition
+alias lsnew='ls -Alh --color=auto --time-style=+%D | grep `date +%D`'
+alias lss='ls -shaxSr'                         			       			# sort by size
+alias lsss='ls -lrt | grep $1'								# to see something coming into ls output: lss
+alias lsx='ls -ax' 									# sort right to left rather then in columns
+alias lt_='ls -alt|head -20' 								# 20, all, long listing, modification time
+alias lt='ls -ltr'         								# sort by date, most recent last
+alias lu='ls -ltur'        								# sort by and show access time, most recent last
+alias lx='ls -lXB'									# sort by extension
+# alias man='TERMINFO=~/.terminfo TERM=mostlike LESS=C PAGER=less man'			# cool colors for manpages
+alias mem_hogs_ps='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'		# to find memory hogs
+alias mem_hogs_top='top -l 1 -o rsize -n 10'						# to find memory hogs
+# alias mem='~/.scripts/realmem'							# estimates memory usage
+alias mypc="hal-get-property --udi /org/freedesktop/Hal/devices/computer --key 'system.hardware.product'"		# show computer model
+alias myps='/bin/ps -u "$USER" -o user,pid,ppid,pcpu,pmem,args|less'			# ps
+alias numFiles='echo $(ls -1 | wc -l)'							# numFiles: number of (non-hidden) files in current directory
+# alias packagelist='sudo dpkg --get-selections'					# show llist of all packages (columns)
+alias packagelist="sudo aptitude search -F %p ~i --disable-columns"			# show list of all packages (columns)
+alias packagelist_="sudo aptitude search -F %p ~i --disable-columns | sed 's/$/,/' | tr '\n\r' ' ' | sed 's/, $//'"	# list all packages (1-liner)
+alias phonesearch='grep '[0-9]\{3\}-[0-9]\{4\}' "$1"'					# search phone #'s in file (requires XXX-XXX-XXXX format)
+alias processbycpuusage="ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed '/^ 0.0 /d'"
+alias processbymemusage='ps -e -o rss=,args= | sort -b -k1,1n | pr -TW$COLUMNS'
+alias processtree='ps -e -o pid,args --forest'
+alias pss='ps -ef | grep $1'								# to check a process is running in a box with a heavy load: pss
+alias rcommand='ls /usr/bin | shuf -n 1'						# get a random command
+# alias rcommand='man $(ls /usr/bin | shuf -n 1)'					# get a random command
+alias sete='set|sed -n "/^`declare -F|sed -n "s/^declare -f \(.*\)/\1 ()/p;q"`/q;p"'	# display environment vars only, using set
+alias showallaliases='compgen -A alias'							# list bash alias defined in .bash_profile or .bashrc
+alias showallfunctions='compgen -A function'						# list bash functions defined in .bash_profile or .bashrc
+alias sizeof='du -sh'
+alias space='df -h'									# disk space usage
+alias sshall='logwatch --service sshd --range all --detail high --print --archives'
+alias sshtoday='logwatch --service sshd --range today --detail high --print --archives'
+alias superfind='sudo find / ! \( -path /proc -prune -o -path /tmp -prune -o -path /dev -prune -o -path /mnt -prune \) -name'
+alias top-commands='history | awk "{print $2}" | awk "BEGIN {FS="|"} {print $1}" |sort|uniq -c | sort -rn | head -10'	# show most popular commands
+alias topforever='top -l 0 -s 10 -o cpu -n 15'						# continual 'top' listing (every 10 sec) showing top 15 CPU things
+alias topten='du -sk $(/bin/ls -A) | sort -rn | head -10'				# displays the top ten biggest folders/files in the current directory
+alias top20='du -xk | sort -n | tail -20'						# find the 20 biggest directories on the current filesystem
+alias top_='xtitle Processes on $HOST && top'						# uses the function 'xtitle'
+alias treefind_="find . | sed 's/[^/]*\//|   /g;s/| *\([^| ]\)/+--- \1/'"		# displays a tree of the arborescence
+alias tree='tree -Cs'									# nice alternative to 'ls'
+alias unusedkernels="dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d'"											# show installed but unused linux headers, image, or modules
+alias vdir='ls --color=auto --format=long'
+alias ver='cat /etc/lsb-release'							# Ubuntu version detail
+alias version='sudo apt-show-versions'							# show version
+alias whichall='{ command alias; command declare -f; } | command which --read-functions --read-alias -a'		# which alias
+alias WHOAMI='getent passwd $(whoami) | cut -f 5 -d: | cut -f 1 -d,'			# prints out what the users name, notifyed in the gecos field is
+alias wordcount='wc -w $1'								# count number of words in text file
+
+
+
+##################################################
+# Information (clock and date stuff)		 #
+##################################################
+
+alias am-pm='date +"%p"'								# AM/PM (ex. AM)
+alias bdate2="date +'%a %Y-%m-%d %H:%M:%S %z'"						# date command (ex. Sun 2011-01-23 05:39:26 -0500)
+alias bdate3='date "+%Y-%m-%d %A    %T %Z"'						# date command (ex. 2011-01-23 Sunday    05:39:23 EST)
+alias bdate="date '+%a, %b %d %Y %T %Z'"						# date command (ex. Sun, Jan 23 2011 05:39:13 EST)
+alias cal='cal -3' 									# show 3 months by default
+alias dateh='date --help|sed "/^ *%a/,/^ *%Z/!d;y/_/!/;s/^ *%\([:a-z]\+\) \+/\1_/gI;s/%/#/g;s/^\([a-y]\|[z:]\+\)_/%%\1_%\1_/I"|while read L;do date "+${L}"|sed y/!#/%%/;done|column -ts_'	# view all date formats, quick reference help alias
+alias day='date +%A'									# day of the week (ex. Saturday)
+alias DAY='date "+%A" | tr '[a-z]' '[A-Z]''						# day (text) (ex. SATURDAY)
+alias day#='date +%d'									# date (numeric) (ex. 22)
+alias daysleft='echo "There are $(($(date +%j -d"Dec 31, $(date +%Y)")-$(date +%j))) left in year $(date +%Y)."'	# how many days until the end of the year
+alias epochdaysleft="perl -e 'printf qq{%d\n}, time/86400;'"				# perl one-liner to determine number of days since the Unix epoch
+alias epochtime='date +%s'								# report number of seconds since the Epoch (ex. 1295779549)
+alias month='date +%B'									# month (ex. January)
+alias MONTH='date "+%B" | tr '[a-z]' '[A-Z]''						# month (text) (ex. JANUARY)
+alias mytime='date +%H:%M:%S'								# shows just the current time (ex. 05:46:05)
+alias ntpdate='sudo ntpdate ntp.ubuntu.com pool.ntp.org'				# time synchronisation with NTP (ex. 23 Jan 05:46:29)
+alias oclock='read -a A<<<".*.**..*....*** 8 9 5 10 6 0 2 11 7 4";for C in `date +"%H%M"|fold -w1`;do echo "${A:${A[C+1]}:4}";done'   # odd clock
+alias onthisday='grep -h -d skip `date +%m/%d` /usr/share/calendar/*'			# on this day
+alias onthisday_='firefox http://en.wikipedia.org/wiki/$(date +'%b_%d')'		# what happened on this day in history?
+alias secconvert='date -d@1234567890'							# convert seconds to human-readable format (ex. Fri Feb 13 18:31:30 EST 2009)
+alias stamp='date "+%Y%m%d%a%H%M"'							# timestamp (ex. 20110123Sun0545)
+alias time2='date +"%I:%M"'								# time (hours:minutes) (ex. 05:13)
+alias time3='date +"%l:%M %p"'								# time (ex. 5:13 AM)
+alias time4='date +"%H:%M"'								# time (hours:minutes) (ex. 05:13)
+alias timestamp='date "+%Y%m%dT%H%M%S"'							# timestamp (ex. 20110123T054906)
+alias today='date +"%A, %B %-d, %Y"'							# date command (ex. Sunday, January 23, 2011)
+alias weeknum='date +%V'								# perl one-liner to get the current week number (ex. 03)
+
+
+
+##################################################
+# Miscellaneous					 #
+##################################################
+
+alias -- --='-;-'
+alias -- ---='-;-;-'
+alias -- ----='-;-;-;-'
+alias -- -----='-;-;-;-;-'
+alias ++='+;+'
+alias +++='+;+;+'
+alias ++++='+;+;+;+'
+alias +++++='+;+;+;+;+'
+alias addrepo='sudo add-apt-repository'							# add a repo to repo .list
+alias adobenospy='for A in ~/.adobe ~/.macromedia ; do ( [ -d $A ] && rm -rf $A ; ln -s -f /dev/null $A ) ; done'	# brute force way to block all LSO cookies with the non-free Flash browser plugin
+alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'	# notified when job run in terminal is done using NotifyOSD
+alias alert='notify-send -i gnome-terminal "Finished Terminal Job" "[$?] $(alert_helper)"'	# usage: sleep 5; alert
+alias alph='cat "$1" | sort > "$1"'							# alphabetizes a file
+alias alsamixer='alsamixer -V all'
+alias bashrc-copy-r='sudo cp /root/.bashrc ~/.bashrc'
+alias bashrc-copy='sudo cp ~/.bashrc /root/.bashrc'
+alias bashrc-cpr='sudo cp ~/.bashrc /root/.bashrc && cp ~/.bashrc ~/Temp && gedit ~/.bashrc && exit'
+alias bashrc='gedit ~/.bashrc & exit'
+alias bashrc-root='sudo gedit ~/.bashrc & exit'
+alias bashrc-temp='cp ~/.bashrc ~/Temp'
+alias bedit='vim ~/.bashrc; source ~/.bashrc'
+alias beep='echo -en "\007"'								# ring the bell
+alias bgedit='gedit ~/.bashrc; source ~/.bashrc'
+alias blipfm="mpg123 `curl -s http://blip.fm/all | sed -e 's#"#\n#g'  | grep mp3$  | xargs`"	# play random music from blip.fm
+alias capture='IMAGE="$HOME/Pictures/capture-`date +%Y%m%d%H%M%S`.png"; import -frame $IMAGE; echo "Image saved as $IMAGE"'	# save portion of desktop as image
+alias cic='set completion-ignore-case On'						# make tab-completion case-insensitive
+alias clisp='clisp -q'
+alias commentremove="sed 's/[[:blank:]]*#.*//; /^$/d' "$1""				# this will remove comments that are at the end of lines
+alias compiz-replace='compiz --replace'							# refreshes compiz (fixes drag/drop issue, among others)
+alias cut80='/usr/bin/cut -c 1-80'							# truncate lines longer than 80 characters (for use in pipes)
+alias debrepack='sudo dpkg-repack'							# just an easier-to-remember alias for 'dpkg-repack'
+alias differ='sdiff --suppress-common-lines'						# bash alias for sdiff: differ
+if [ -e "/usr/bin/lynx" ] ; then
+    alias dmregister='lynx http://desmoinesregister.com'
+    alias bbc='lynx -term=vt100 http://news.bbc.co.uk/text_only.stm'
+    alias nytimes='lynx -term=vt100 http://nytimes.com'
+fi
+alias dos2unix_='perl -pi -e 's/\r\n/\n/g' *'
+alias downNuncompress='wget http://URL/FILE.tar.gz -O- | tar xz'			# download a file and uncompress it while it downloads
+# alias downNuncompress='curl http://URL/FILE.tar.gz | tar xz'				# download a file and uncompress it while it downloads
+alias du0='du --max-depth=0'
+alias du1='du --max-depth=1'
+alias ebrc='nano ~/.bashrc'
+alias ebrcupdate='source ~/.bashrc'
+alias edit='nano'
+alias elog='tai64nlocal'
+alias encryptall='for f in * ; do [ -f $f ] && openssl enc -aes-256-cbc -salt -in $f -out $f.enc -pass file:/tmp/password-file ; done'	# encrypt every file in current directory with 256-bit AES, retaining original
+alias fixmount='sudo e2fsck -f /dev/sda1'						# repair device booting/mounting error (for /dev/sda1)
+alias fixopera='rm -r ~/.opera/{mail,lock}'
+alias fixres='xrandr --size 1600x1200'      						# reset resolution
+alias fix_stty='stty sane'								# restore terminal settings when they get completely screwed up
+alias flv2ogg='for i in $(ls *.flv); do ffmpeg2theora -v 6 --optimize $i; done'		# convert all FLV's in a directory to Ogg Theora (video)
+alias flvaudio='ffmpeg -i "$1" -f mp3 -vn -acodec copy ouput.mp3'			# extract sound from flv & make mp3
+alias foldpb='pbpaste | fold -s | pbcopy'						# make text in clipboard wrap so as to not exceed 80 characters
+alias funkcje="grep -o '^[a-zA-Z]\{1,\}.(*)' ~/.bashrc"
+alias gdbbt='gdb -q -n -ex bt -batch'							# print stack trace of a core file without needing to enter gdb interactively
+alias gifted='giftd -d && giFTcurs'
+alias gitk='screen -d -m gitk'
+alias gmail='sh /$HOME/.scripts/gmail.sh'
+alias googlevideo='wget -qO- "VURL" | grep -o "googleplayer.swf?videoUrl\\\x3d\(.\+\)\\\x26thumbnailUrl\\\x3dhttp" | grep -o "http.\+" | sed -e's/%\([0-9A-F][0-9A-F]\)/\\\\\x\1/g' | xargs echo -e | sed 's/.\{22\}$//g' | xargs wget -O "$1"'	# Google video download
+alias gsop='gmplayer http://localhost:8909 -prefer-ipv4'
+alias head='head -n $((${LINES:-`tput lines 2>/dev/null||echo -n 12`} - 2))'		# alias HEAD for automatic smart output
+alias hiresvideo='mplayer -framedrop -vfm ffmpeg -lavdopts lowres=1:fast:skiploopfilter=all'	# play high-res video files on a slow processor
+alias image2pdf='convert -adjoin -page A4 *.jpeg multipage.pdf'				# convert images to a multi-page pdf
+alias irb='irb --readline -r irb/completion -rubygems'
+alias jargon='wget -m http://catb.org/~esr/jargon/html/ -nH --cut-dirs=2 -np -L -P ~/Jargon/'
+alias kernbuild='make -j3 && make modules_install && ls -ld ../linux && date'		# compile kernel, install modules, display kernel vers & date
+alias kfire='for i in `ps aux | grep [F]irefox `; do echo $i; kill $(($i)); done; '
+# alias kfire='kill $(pidof firefox)'
+# alias kfire='kill $(ps aux | awk '/firefox/ {print $2}' | tr '\n' ' ')'
+alias killall='killall -u $USER -v' 							# only kill our own processes, and also be verbose about it
+alias killall_wine='wineserver -k'							# stop all Wine apps and processes
+alias lastlog='lastlog | grep -v Never'
+alias less='less -Mw'
+alias lssd='ps ax | grep -v grep | grep -i firefox | while read pid; do kill "${pid%% *}"; done'
+alias lstexfont='ls {/usr/share/texmf-dist/tex/latex/psnfss/*.sty,/usr/share/texmf-dist/tex/latex/pxfonts/*.sty}'
+alias lvim="vim -c \"normal '0\""							# open the last file you edited in Vim.
+alias makepasswd='makepasswd -minchars 8'
+alias make_='xtitle Making $(basename $PWD) ; make'					# uses the function 'xtitle'
+alias mencoder-join='mencoder -forceidx -ovc copy -oac copy -o'				# just add: whatever.avi whatever.pt1.avi whatever.pt2.avi ...
+alias memlimit='ulimit -v 1000000; $1'							# limit memory usage per script/program
+alias mic_record='arecord -q -f cd -r 44100 -c2 -t raw | lame -S -x -h -b 128 - `date +%Y%m%d%H%M`.mp3'	# record microphone input and output to date stamped mp3 file
+alias minicom='minicom -c on' 								# enable colour (sudo apt-get install minicom)
+alias mkdirday='mkdir `date +%Y%m%d`_$1'						# (by Karl Voit) creates directory that starts with current day
+alias mkdsp='sudo mknod /dev/dsp c 14 3 && sudo chmod 777 /dev/dsp'			# remake /dev/dsp
+alias mkpkg='makepkg -csi'
+alias mp3ogg='mp32ogg *.mp3 && rm *.mp3'
+alias mpfb='mplayer -vo fbdev -xy 1024 -fs -zoom "$1"'					# watch a movie in linux without the X windows system
+alias mpfb_='mplayer -vo fbdev2 -fs -zoom -xy 1440'
+alias mtrue='sudo truecrypt /media/usbdisk/$USER.tc ~/$USER'
+alias n2r='sudo /etc/init.d/nginx stop && sleep 2 && sudo /etc/init.d/nginx start'
+alias ncftp='xtitle ncFTP ; ncftp'							# uses the function 'xtitle'
+alias passwords='passwd && rm -rf ~/.gnome2/keyrings/*'					# removes keyring passwords and lets you change user password
+alias ppa-purge='sudo ppa-purge'
+alias pstree='/sw/bin/pstree -g 2 -w'
+alias puttyreload='export TERM=putty && source ~/.bashrc'
+alias quota='quota -s'  								# human readable quota!
+alias recursivetouch='find . -exec touch {} \;'						# be careful with this as it can modify time stamp of files
+alias repo='gksudo gedit /etc/apt/sources.list'
+alias restart-apache='sudo /etc/init.d/apache2 restart'
+alias retheme='sudo gnome-settings-daemon'						# refreshes the theme to fix grey basic theme error at startup
+alias rkhunter='sudo rkhunter -c'
+alias rmao='find . -iname a.out -exec rm {} \;'
+alias rm_DS_Store_files='find . -name .DS_Store -exec rm {} \;'				# removes all .DS_Store file from the current dir and below
+alias rsync-me='sudo rsync -a -v --progress --delete --modify-window=1 -s $HOME /home/rsync'
+alias scpresume='rsync --partial --progress --rsh=ssh'
+# alias screencast='ffmpeg -f alsa -ac 2 -i hw:0,0 -f x11grab -r 30 -s 1280x800+0+0 -i :0.0 -acodec pcm_s16le -vcodec libx264 -vpre lossless_ultrafast -threads 0 -y output.mkv'
+# alias screencast='ffmpeg -f x11grab -r 30 -s 1280x800 -i :0.0 $HOME/outputFile.mpg'	# record a screencast and convert it to an mpeg
+alias screencast="ffmpeg -y -f alsa -ac 2 -i pulse -f x11grab -r 30 -s `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -i :0.0 -acodec pcm_s16le output.wav -an -vcodec libx264 -vpre lossless_ultrafast -threads 0 output.mp4"		# capture video of a linux desktop
+alias screenr='screen -r $(screen -ls | egrep -o -e '[0-9]+' | head -n 1)'		# quick enter into a single screen session
+alias screen_restart='sudo /etc/init.d/gdm restart'					# restarts screen to login screen so as to get back in
+alias sdiff='/usr/bin/sdiff --expand-tabs --ignore-all-space --strip-trailing-cr --width=160'	# sdiff the way it was at IBM
+alias sdirs='source ~/.dirs'
+alias service='sudo service'								# access a system service
+alias sh_diff='diff -abBpur'
+alias sh_indent='indent -nsaf -npcs -cli2 -i2 -lp -nprs -nsaw -nut -cbi2 -bli0 -bls -nbad -npsl'
+alias shot!='archey && scrot -d 5 -c screen_`date +%Y-%m-%d`.png'			# is also a function of shot which does the screen for one window
+alias show_='cat ~/.dirs'
+alias show-colors='~/.bin/colors.sh'
+alias show-info='~/.bin/info.pl'
+alias show_options='shopt'								# show_options: display bash options settings
+alias showrepo='cat /etc/apt/sources.list `ls /etc/apt/sources.list.d/*.list` | egrep -v "^$"'
+alias sh_svnstat="svn status | awk '/^[^?]/'"
+alias sourcea='source ~/.aliases.bash'							# to source this file (to make changes active after editing)
+alias ssinfo='perl ~/.scripts/ssinfo.pl'
+# alias svnaddall='find "$PWD" -exec svn add {} 2>/dev/null \;'				# add all files recursively
+alias svnaddall='svn status | grep "^\?" | awk "{print \$2}" | xargs svn add'
+alias svndelall='svn status | grep "^\!" | awk "{print \$2}" | xargs svn delete'
+alias svnrmallentries='find . -name .svn -print0 | xargs -0 rm -rf'			# remove all .svn directories recursively
+alias tailm='multitail'
+alias tarred='( ( D=`builtin pwd`; F=$(date +$HOME/`sed "s,[/ ],#,g" <<< ${D/${HOME}/}`#-%F.tgz); tar --ignore-failed-read --transform "s,^${D%/*},`date +${D%/*}.%F`,S" -czPf "$"F "$D" &>/dev/null ) & )'					# create date-based tgz of current dir (runs in background)
+# alias themeinfo='perl ~/Scripts/info.pl'
+alias thumbit='mogrify -resize 25%'
+alias tinyurl='~/.scripts/tinyurl'							# converts url to tinyurl
+alias tkeys='tmux list-keys'  								# shows all tmux keys
+alias trace='~/.scripts/trace'								# visual traceroute
+alias txt2md='rename 's/\.txt$/\.md$/i' *'						# batch rename extension of all .txt files to .md files in a folder
+alias ugrub2='sudo update-grub2'							# update grub2
+alias ugrub='sudo update-grub'								# update grub
+alias updatedb='sudo updatedb'
+alias updatefonts='sudo fc-cache -vf'
+alias usbb='rsync -avz /media/usbdisk/ ~/backup/usb/'
+alias utrue='sudo truecrypt -d'
+alias viaco='task="$(basename "$(pwd)")"; if [ -f "$task.c" ]; then vi -c "set mouse=n" -c "set autoread" -c "vsplit $task.out" -c "split $task.in" -c "wincmd l" -c "wincmd H" $task.c; fi'							# setup Vim environment for USACO coding
+alias webcam='mplayer -cache 128 -tv driver=v4l2:width=176:height=177 -vo xv tv:// -noborder -geometry "95%:93%" -ontop'	# mplayer webcam window for screencasts
+alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test();"'
+alias wiki='wikipedia2text -p'								# convert wiki to text output
+alias wma2wav='for i in *.wma; do mplayer -vo null -vc dummy -af resample=44100 -ao pcm:waveheader:file="${i%.wma}.wav" "$i" ; done'	# convert wma to wav
+alias xinitrc='vim ~/.xinitrc'
+alias xsnow='(killall xsnow ; sleep 3 ; exec xsnow -nosanta -notrees -norudolf -nokeepsnow >& /dev/null &)'	# xsnow
+
+
+
+##################################################
+# Miscellaneous Fun				 #
+##################################################
+
+alias 99bottles='x="bottles of beer";y="on the wall";for b in {99..1};do echo "$b $x $y, $b $x. Take one down pass it around, $(($b-1)) $x $y"; sleep 3;done'
+alias addictive='count="1" ; while true ; do read next ; if [[ "$next" = "$last" ]] ; then count=$(($count+1)) ; echo "$count" ; else count="1" ; echo $count ; fi ; last="$next" ; done'								# simple addicting bash game
+alias aljazeera='rtmpdump -v -r rtmp://livestfslivefs.fplive.net/livestfslive-live/ -y "aljazeera_en_veryhigh" -a "aljazeeraflashlive-live" -o -| mplayer -'												# watch Aljazeera live
+alias awesome='while $i;do `notify-send -t 200 "You are awesome :)"`;sleep 60; done;'		# get informed periodically by your box that you are awesome
+alias busy='for i in `seq 0 100`;do timeout 6 dialog --gauge "Install..." 6 40 "$i";done'	# pretend to be busy in office to enjoy a cup of coffee
+alias busy2='my_file=$(find /usr/include -type f | sort -R | head -n 1); my_len=$(wc -l $my_file | awk "{print $1}"); let "r = $RANDOM % $my_len" 2>/dev/null; vim +$r $my_file'
+alias busy3='cat /dev/urandom | hexdump -C | highlight ca fe 3d 42 e1 b3 ae f8 | perl -MTime::HiRes -pnE "Time::HiRes::usleep(rand()*1000000)"'
+alias earth='rm -f ~/Pictures/Backgrounds/mercator.jpg && wget -r -N http://static.die.net/earth/mercator/1600.jpg -O ~/Pictures/Backgrounds/mercator.jpg && gconftool-2 --type string --set /desktop/gnome/background/picture_filename ~/Pictures/Backgrounds/mercator.jpg'	# live earth wallpaper
+# alias earth='mv ~/Pictures/Backgrounds/mercator.jpg ~/Pictures/Backgrounds/mercator.`timestamp`.jpg | wget -r -N http://static.die.net/earth/mercator/1600.jpg -O ~/Pictures/Backgrounds/mercator.jpg && gconftool-2 --type string --set /desktop/gnome/background/picture_filename ~/Pictures/Backgrounds/mercator.jpg'	# live earth wallpaper (downloads and saves each time)
+alias einsteiny='A=1;B=100;X=0;C=0;N=$[$RANDOM%$B+1];until [ $X -eq $N ];do read -p "N between $A and $B. Guess? " X;C=$(($C+1));A=$(($X<$N?$X:$A));B=$(($X>$N?$X:$B));done;echo "Took you $C tries, Einstein";'						# numbers guessing game
+alias etchasketch='c=12322123;x=20;y=20;while read -sn1 p;do k=${c:(p-1)*2:2};let x+=$((k/10-2));let y+=$((k%10-2));echo -en \\033[$y\;"$x"HX;done'	# use the 1 2 3 and 4 keys to move the cursor around the screen (It's an etch-a-sketch for your terminal!)
+alias excuses='echo `telnet bofh.jeffballard.us 666 2>/dev/null` |grep --color -o "Your excuse is:.*$"'		# excuses
+alias freechess='telnet fics.freechess.org 5000'						# connects to a telnet server for free internet chess
+alias funfacts='wget http://www.randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;";'
+alias funknet='telnet the-funk.net 7000'							# Access to Funk.net
+alias futurama='curl -Is slashdot.org | sed -n '5p' | sed 's/^X-//''				# get Futurama quotations from slashdot.org servers
+alias guitartune='for n in E2 A2 D3 G3 B3 E4;do play -n synth 4 pluck $n repeat 2;done'		# tune your guitar from the command line
+alias iamcow='fortune | cowsay'
+alias iampony='fortune | ponysay -W i'
+alias iamsurprise='fortune | cowsay -f $(random_cow)'
+alias insults='wget http://www.randominsults.net -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;";'
+alias lotto='shuf -i 1-49 -n 6 | sort -n | xargs'						# lotto generator
+alias matrix='echo -e "\e[32m"; while :; do for i in {1..16}; do r="$(($RANDOM % 2))"; if [[ $(($RANDOM % 5)) == 1 ]]; then if [[ $(($RANDOM % 4)) == 1 ]]; then v+="\e[1m $r   "; else v+="\e[2m $r   "; fi; else v+="     "; fi; done; echo -e "$v"; v=""; done'
+alias matrix2='echo -e "\e[31m"; while $t; do for i in `seq 1 30`;do r="$[($RANDOM % 2)]";h="$[($RANDOM % 4)]";if [ $h -eq 1 ]; then v="\e[1m $r";else v="\e[2m $r";fi;v2="$v2 $v";done;echo -e $v2;v2="";done;'
+alias matrix3='COL=$(( $(tput cols) / 2 )); clear; tput setaf 2; while :; do tput cup $((RANDOM%COL)) $((RANDOM%COL)); printf "%$((RANDOM%COL))s" $((RANDOM%2)); done'
+alias matrix4='echo -ne "\e[32m" ; while true ; do echo -ne "\e[$(($RANDOM % 2 + 1))m" ; tr -c "[:print:]" " " < /dev/urandom | dd count=1 bs=50 2> /dev/null ; done'
+alias matrix5='tr -c "[:digit:]" " " < /dev/urandom | dd cbs=$COLUMNS conv=lcase,unblock | GREP_COLOR="1;32" grep --color "[^ ]"'
+alias roulette='[ $[ $RANDOM % 6 ] == 0 ] && echo Die || echo Live'				# command line Russian roulette
+alias screensaver='for ((;;)); do echo -ne "\033[$((1+RANDOM%LINES));$((1+RANDOM%COLUMNS))H\033[$((RANDOM%2));3$((RANDOM%8))m$((RANDOM%10))"; sleep 0.1 ; done'												# terminal screensaver
+alias starwars='telnet towel.blinkenlights.nl'							# the famous starwars ASCII version from telnet
+alias termvideo_bw='mplayer -vo aa'								# watch movies in ASCII (just direct to the video)
+alias termvideo='mplayer -vo caca'								# watch movies in ASCII (just direct to the video)
+alias wooters='telnet zerocarbs.wooters.us'							# connects to a telnet service monitoring Woot (Gives you an updating woot! item tracker!)
+
+
+
+##################################################
+# Network/Internet -oriented stuff		 #
+##################################################
+
+alias appson="netstat -lantp | grep -i stab | awk -F/ '{print $2}' | sort | uniq"	# view only the process name using an internet connection
+alias bandwidth='dd if=/dev/zero of=/dev/null bs=1M count=32768'			# processor / memory bandwidthd? in GB/s
+alias browse_bonjour='dns-sd -B'							# browse services advertised via Bonjour
+# alias daemons='ls /var/run/daemons'  							# daemon managment (ommited for function)
+alias dbdumpcp='scp -P 1234 username@12.34.56.78:$HOME/Backup/www/data/someSite/db.sql $HOME/Backup/data/db.sql'	# copy remote db to local
+alias dns='cat /etc/resolv.conf'							# view DNS numbers
+alias domain2ban='~/.scripts/Domain2Ban.sh'
+alias estab='ss -p | grep STA' 								# view only established sockets (fails if "ss" is screensaver alias)
+alias finchsync='java -jar ~/finchsync/finchsync.jar'					# start FinchSync Admin
+# alias ftop='watch -d -n 2 'df; ls -FlAt;''						# like top, but for files
+alias hdinfo='hdparm -i[I] /dev/sda'							# hard disk information - model/serial no.
+alias hostip='wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
+alias hostname_lookup='lookupd -d'							# interactive debugging mode for lookupd (use tab-completion)
+alias http_trace='pkt_trace port 80'							# to show all HTTP packets
+alias iftop='sudo iftop -i eth0' 							# start "iftop" program (sudo apt-get install iftop)
+alias ip4grep="grep -E '([0-9]{1,3}\.){3}[0-9]{1,3}'"					# look for IPv4 address in files
+alias ip='curl www.whatismyip.org'
+alias ip_info='ipconfig getpacket en1'							# info on DHCP server, router, DNS server, etc (for en0 or en1)
+alias ipt80='sudo iptstate -D 80'							# check out only iptables state of http port 80 (requires iptstate)
+alias ip_trace='pkt_trace ip'								# to show all IP packets
+alias ipttrans='sudo iptstate -D 51413'							# iptables state of Transmission-Daemon port (requires iptstate)
+alias listen='sudo netstat -pnutl' 							# lists all listening ports together with PID of associated process
+alias lsock='sudo /usr/sbin/lsof -i -P'							# to display open sockets ( -P option to lsof disables port names)
+alias memrel='free && sync && echo 3 > /proc/sys/vm/drop_caches && free'		# release memory used by the Linux kernel on caches
+alias net1='watch --interval=2 "sudo netstat -apn -l -A inet"'
+alias net2='watch --interval=2 "sudo netstat -anp --inet --inet6"'
+alias net3='sudo lsof -i'
+alias net4='watch --interval=2 "sudo netstat -p -e --inet --numeric-hosts"'
+alias net5='watch --interval=2 "sudo netstat -tulpan"'
+alias net6='sudo netstat -tulpan'
+alias net7='watch --interval=2 "sudo netstat -utapen"'
+alias net8='watch --interval=2 "sudo netstat -ano -l -A inet"'
+alias netapps="lsof -P -i -n | cut -f 1 -d ' '| uniq | tail -n +2"
+alias nethogs='sudo nethogs eth0' 							# start "nethogs" program (sudo apt-get install nethogs)
+alias netl='sudo nmap -sT -O localhost'
+alias netscan='sudo iwlist wlan0 scan'							# to scan your environment for available networks, do the following
+alias netstats='sudo iwspy wlan0'							# if card supports it, you can collect wireless statistics by using
+alias network='sudo lshw -C network' 							# view network device info
+alias networkdump='sudo tcpdump not port 22' 						# dump all the network activity except ssh stuff
+alias nmr='sudo /etc/rc.d/networkmanager restart'
+alias nsl='netstat -f inet | grep -v CLOSE_WAIT | cut -c-6,21-94 | tail +2'		# show all programs connected or listening on a network port
+alias ns='netstat -alnp --protocol=inet | grep -v CLOSE_WAIT | cut -c-6,21-94 | tail +2'
+alias openports='sudo netstat -nape --inet' 						# view open ports
+alias pkt_trace='sudo tcpflow -i `active_net_iface` -c'
+alias ports='lsof -i -n -P' 								# view programs using an internet connection
+alias portstats='sudo netstat -s' 							# show statistics for all ports
+alias proxy1='ssh -p 1234 -D 5678 username@12.34.56.78'					# SOCKS proxy - these anonomise browsing - 12.34.56.78
+alias proxy2='ssh -p 8765 -D 4321 username@87.65.43.21'					# SOCKS proxy - these anonomise browsing - 87.65.43.21
+alias QUERY='psql -h $MYDBHOST -p 5432 -d $MYDB -U $MYLOGIN --no-align'			# lazy SQL QUERYING
+alias randomip='echo $((RANDOM%256)).$((RANDOM%256)).$((RANDOM%256)).$((RANDOM%256))'	# generate a random IP address
+alias ramvalue='sudo dd if=/dev/mem | cat | strings'					# will show you all the string (plain text) values in ram
+alias randommac='python -c "from itertools import imap; from random import randint; print ':'.join(['%02x'%x for x in imap(lambda x:randint(0,255), range(6))])"'										# generate random valid mac addresses
+alias rdp='rdesktop -u "$USER" -g 1600x1200 -D -r disk:home=/home -r clipboard:PRIMARYCLIPBOARD'	# quick full screen RDP connection
+alias remote='ssh -p 1234 12.34.56.78'							# access some remote host
+alias restartnet='sudo /etc/rc.d/network restart;sudo /etc/rc.d/wicd restart'
+alias rssup='php /srv/http/rssupdate.php'
+alias setessid='sudo iwconfig wlan0 essid network-essid'				# set the essid, which identifies the network access point you want
+alias smtp_trace='pkt_trace port smtp'							# to show all SMTP packets
+alias someDBdump='sudo mysqldump someDB -uroot -p > $HOME/www/_dbs/someDB.sql'
+alias spavr='gtkterm -c avr'
+# alias spavr='sudo chmod a=rw /dev/ttyUSB0; gtkterm -c avr'
+alias spk800i='gtkterm -c k800i'
+# alias spk800i='sudo chmod a=rw /dev/rfcomm0; gtkterm -c k800i'
+alias sql='mysql -p -u root'
+alias sync='java -jar ~/finchsync/finchsync.jar -nogui'					# sync to PDA .. well, that'll be a sync then! - start FinchSync SVR
+alias syncoff='java -jar ~/Apps/FinchSync/finchsync.jar -stopserver'			# sync to PDA .. well, that'll be a sync then! - stop FinchSync SVR
+alias tcpstats='sudo netstat -st' 							# show statistics for tcp ports
+alias tcp_='sudo netstat -atp' 								# list all TCP ports
+alias tcp_trace='pkt_trace tcp'								# to show all TCP packets
+alias topsites='curl -s -O http://s3.amazonaws.com/alexa-static/top-1m.csv.zip ; unzip -q -o top-1m.csv.zip top-1m.csv ; head -1000 top-1m.csv | cut -d, -f2 | cut -d/ -f1 > topsites.txt'							# get a list of top 1000 sites from alexa
+alias tproxy='ssh -ND 8118 user@server&; export LD_PRELOAD="/usr/lib/libtsocks.so"'	# creates a proxy based on tsocks
+alias udpstats='sudo netstat -su' 							# show statistics for udp ports
+alias udp='sudo netstat -aup' 								# list all UDP ports
+alias udp_trace='pkt_trace udp'								# to show all UDP packets
+alias uploads='cd /some/folder'								# access some folder
+alias vncup='x11vnc -nopw -ncache 10 -display :0 -localhost'
+alias website_dl='wget --random-wait -r -p -e robots=off -U mozilla "$1"'		# download an entire website
+alias website_images='wget -r -l1 --no-parent -nH -nd -P/tmp -A".gif,.jpg" "$1"'	# download all images from a site
+alias whois='whois -H'
+alias wscan_='iwlist scan'								# terminal network scan for wireless signals
+alias wwwmirror2='wget -k -r -l ${2} ${1}'						# wwwmirror2 usage: wwwmirror2 [level] [site_url]
+alias wwwmirror='wget -ErkK -np ${1}'
+
+
+
+##################################################
+# Package holding, making, and installation	 #
+##################################################
+
+if [ -e "/usr/bin/dpkg" ] ; then
+    alias checkinstall-force='sudo checkinstall --dpkgflags "--force-overwrite"'
+    alias checkinstall-noinstall='sudo checkinstall -y --fstrans=no --install=no'
+    alias checkinstall='sudo checkinstall -y --fstrans=no'
+    alias debinstall-force='sudo dpkg -i --force-overwrite'
+    alias debinstall='sudo dpkg -i'
+fi
+alias diffinstall='diff /tmp/install.pre /tmp/install.pos | grep \"^>\" | sed \"s/^> //g\"'	# run diffinstall fourth, after diffinstall to show what files were copied in your system
+alias postinstall='sudo find / ! \( -path /proc -prune -o -path /tmp -prune -o -path /dev -prune -o -path /mnt -prune \) > /tmp/install.pos'	# run postinstall third, after "make install"
+alias preinstall='sudo find / ! \( -path /proc -prune -o -path /tmp -prune -o -path /dev -prune -o -path /mnt -prune \) > /tmp/install.pre'	# run preinstall first, then "make install"
+
+
+
+##################################################
+# Permissions					 #
+##################################################
+
+alias 000='chmod 000'
+alias 640='chmod 640'
+alias 644='chmod 644'
+alias 755='chmod 755'
+alias 775='chmod 775'
+alias mx='chmod a+x'
+alias perm='stat --printf "%a %n \n "'								# requires a file name e.g. perm file
+alias restoremod='chgrp users -R .;chmod u=rwX,g=rX,o=rX -R .;chown $(pwd |cut -d / -f 3) -R .'	# restore user,group and mod of an entire website
+
+
+
+##################################################
+# Personal help					 #
+##################################################
+
+alias a?='cat ~/.alias.help'
+alias dn='OPTIONS=$(\ls -F | grep /$); select s in $OPTIONS; do cd $PWD/$s; break;done'
+alias espanol='echo -e \"á Á é É í Í ó Ó ú Ú ñ Ñ ü Ü ¿ ¡ ¢ ‘ ’ “ ” „ ‚ …\"'
+alias f?='cat ~/.function.help'
+alias help='OPTIONS=$(\ls ~/.tips -F);select s in $OPTIONS; do less ~/.tips/$s; break;done'
+alias testh='help test|sed -e :a -e "$!N;s/\(-n STRING\)\n/\1, /;s/\n\( \{23\}\| \{4\}\([a-z]\)\)/ \2/;ta;P;D"|sed "s/ \{1,\}/ /g;/^ $/d;/:$/s/^/\n/"|sed -n "/File operators:/,\$p"'				# test quick help alias
+
+
+
+##################################################
+# Secure-delete substitution			 #
+##################################################
+
+alias sfill-freespace='sudo sfill -I -l -l -v'
+alias sfill-f='sudo sfill -f -l -l -v -z'
+alias sfill='sudo sfill -l -l -v -z'
+alias sfill-usedspace='sudo sfill -i -l -l -v'
+alias smem-f='sudo sdmem -f -l -l -v'
+alias smem-secure='sudo sdmem -v'
+alias smem='sudo sdmem -l -l -v'
+alias srm-m='sudo srm -f -m -z -v'
+alias srm='sudo srm -f -s -z -v'
+alias sswap-sda5='sudo sswap -f -l -l -v -z /dev/sda5'
+alias sswap='sudo sswap -f -l -l -v -z'
+alias swapoff='sudo swapoff /dev/sda5'
+alias swapon='sudo swapon /dev/sda5'
+
+
+
+##################################################
+# Set up auto extension stuff			 #
+##################################################
+
+###### If -s flags present, define suffix alias: if command word on command line is in form `text.name',
+# where text is any non-empty string, its replaced by text 'value text.name'. Note that names treated as literal
+# string, not pattern.  A trailing space in value is not special in this case. For example, alias -s ps=gv
+# will cause command `*.ps' to be expanded to `gv *.ps'. As alias expansion is carried out earlier than globbing,
+# `*.ps' will then be expanded. Suffix aliases constitute different name space from other aliases (so in above
+# example its still possible to create alias for command ps) and two sets are never listed together.
+# alias -s avi=mplayer
+# alias -s bz2=tar -xjvf
+# alias -s com=$BROWSER
+# alias -s cpp=vim
+# alias -s doc=soffice
+# alias -s eps=eog
+# alias -s gif=eog
+# alias -s gz=tar -xzvf
+# alias -s html=$BROWSER
+# alias -s img=mplayer
+# alias -s install=$EDITOR
+# alias -s iso=mplayer
+# alias -s java=$EDITOR
+# alias -s jpg=eog
+# alias -s mkv=mplayer
+# alias -s mp3=mplayer
+# alias -s mpeg=mplayer
+# alias -s mpg=mplayer
+# alias -s mws=maple
+# alias -s net=$BROWSER
+# alias -s odt=soffice
+# alias -s org=$BROWSER
+# alias -s pdf=evince
+# alias -s php=$BROWSER
+# alias -s PKGBUILD=vim
+# alias -s png=eog
+# alias -s ppt=soffice
+# alias -s ps=gv
+# alias -s se=$BROWSER
+# alias -s sh=vim
+# alias -s sxw=soffice
+# alias -s tex=$EDITOR
+# alias -s txt=$EDITOR
+# alias -s wmv=mplayer
+# alias -s xls=soffice
+
+
+
+##################################################
+# Shred substitution				 #
+##################################################
+
+alias shred-sda-r='sudo shred -v -z -n 1 /dev/sda'
+alias shred-sda='sudo shred -v -z -n 0 /dev/sda'
+alias shred-sdb-r='sudo shred -v -z -n 1 /dev/sdb'
+alias shred-sdb='sudo shred -v -z -n 0 /dev/sdb'
+alias shred-sdc-r='sudo shred -v -z -n 1 /dev/sdc'
+alias shred-sdc='sudo shred -v -z -n 0 /dev/sdc'
+alias shred-sdd-r='sudo shred -v -z -n 1 /dev/sdd'
+alias shred-sdd='sudo shred -v -z -n 0 /dev/sdd'
+alias shred-sde-r='sudo shred -v -z -n 1 /dev/sde'
+alias shred-sde='sudo shred -v -z -n 0 /dev/sde'
+alias shred-sdf-r='sudo shred -v -z -n 1 /dev/sdf'
+alias shred-sdf='sudo shred -v -z -n 0 /dev/sdf'
+alias shred-sdg-r='sudo shred -v -z -n 1 /dev/sdg'
+alias shred-sdg='sudo shred -v -z -n 0 /dev/sdg'
+
+
+
+##################################################
+# Xterm and Aterm				 #
+##################################################
+
+alias aterm='xterm -ls -fg gray -bg black'
+alias termb='xterm -bg AntiqueWhite -fg NavyBlue &'
+alias termg='xterm -bg AntiqueWhite -fg OliveDrab &'
+alias termr='xterm -bg AntiqueWhite -fg DarkRed &'
+alias term='xterm -bg AntiqueWhite -fg Black &'
+alias xsu='xterm -fn 7x14 -bg DarkOrange4 -fg white -e su &'
+alias xtop='xterm -fn 6x13 -bg LightSlateGray -fg black -e top &'
+
+
+
+##################################################
+##################################################
+##################################################
+
+
+
+alias dg='dig +short TXT '
+alias dgr='dig +short +recurse TXT '
+
+alias eclipse="UBUNTU_MENUPROXY=0 LIBOVERLAY_SCROLLBAR=0 ~/bin/eclipse/eclipse"
+
+
+alias hdfs='hadoop dfs'
+alias hbase='/usr/local/hbase/bin/hbase'
+alias hbasesh='/usr/local/hbase/bin/hbase shell'
+
+
+######################################################################################################################################################
+# Aliases
+######################################################################################################################################################
+
+alias snippets='SNIPPETS_DIR=~/dev/python-snippets/ acire'
+alias acire='SNIPPETS_DIR=~/dev/python-snippets/ acire'
+
+
+#
+alias alert_helper='history|tail -n1|sed -e "s/^\s*[0-9]\+\s*//" -e "s/;\s*alert$//"'
+alias alert='notify-send -i /usr/share/icons/gnome/32x32/apps/gnome-terminal.png "[$?] $(alert_helper)"'
