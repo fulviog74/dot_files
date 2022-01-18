@@ -5,6 +5,87 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+###### find the IP addresses that are currently online in your network
+function localIps()
+{
+for i in {1..254}; do
+    x=`ping -c1 -w1 192.168.1.$i | grep "%" | cut -d"," -f3 | cut -d"%" -f1 | tr '\n' ' ' | sed 's/ //g'`
+    if [ "$x" == "0" ]; then
+        echo "192.168.1.$i"
+    fi
+done
+}
+
+function apt-history() {
+      case "$1" in
+        install)
+              cat /var/log/dpkg.log | grep 'install '
+              ;;
+        upgrade|remove)
+              cat /var/log/dpkg.log | grep $1
+              ;;
+        rollback)
+              cat /var/log/dpkg.log | grep upgrade | \
+                  grep "$2" -A10000000 | \
+                  grep "$3" -B10000000 | \
+                  awk '{print $4"="$5}'
+              ;;
+        *)
+              cat /var/log/dpkg.log
+              ;;
+      esac
+}
+
+function cds() {
+    # only change directory if a directory is specified
+    [ -n "${1}" ] && cd $1
+    lls
+}
+
+##################################################
+# Mount/unmount CIFS shares; pseudo-         #
+# replacement for smbmount           #
+##################################################
+
+######   $1 = remote share name in form of //server/share
+#   $2 = local mount point
+function cifsmount() { sudo mount -t cifs -o username=${USER},uid=${UID},gid=${GROUPS} $1 $2; }
+
+
+
+function cifsumount() { sudo umount $1; }
+
+##################################################
+# Compress stuff                 #
+##################################################
+
+function compress_() {
+   # Credit goes to: Daenyth
+   FILE=$1
+   shift
+   case $FILE in
+      *.tar.bz2) tar cjf $FILE $*  ;;
+      *.tar.gz)  tar czf $FILE $*  ;;
+      *.tgz)     tar czf $FILE $*  ;;
+      *.zip)     zip $FILE $*      ;;
+      *.rar)     rar $FILE $*      ;;
+      *)         echo "Filetype not recognized" ;;
+   esac
+}
+
+##################################################
+# Cp with progress bar (using pv)        #
+##################################################
+
+function cp_p() {
+    if [ `echo "$2" | grep ".*\/$"` ]
+    then
+        pv "$1" > "$2""$1"
+    else
+        pv "$1" > "$2"/"$1"
+    fi
+}
+
 function allips(){
 ifconfig|awk '/inet / {sub(/addr:/, "", $2); print $2}'
 }
@@ -12,17 +93,10 @@ if [ -f /etc/bashrc ];then
 . /etc/bashrc
 fi
 
-###### netinfo - shows network information for your system
-function netinfo()
+###### display private IP
+function priv()
 {
-echo "--------------- Network Information ---------------"
-/sbin/ifconfig | awk /'inet addr/ {print $2}'
-/sbin/ifconfig | awk /'Bcast/ {print $3}'
-/sbin/ifconfig | awk /'inet addr/ {print $4}'
-/sbin/ifconfig | awk /'HWaddr/ {print $4,$5}'
-myip=`curl ifconfig.me `
-echo "${myip}"
-echo "---------------------------------------------------"
+    ifconfig eth0|grep "inet adr"|awk '{print $2}'|awk -F ':' '{print $2}'
 }
 
 HISTTIMEFORMAT="%F %T "
@@ -32,13 +106,11 @@ HISTFILESIZE=2000
 
 set -o noclobber
 set visible-stats on
+export EDITOR='vim'             # use default text editor
+export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \'
+export PAGER='less -e'
+complete -W "$(echo `cat ~/.bash_history | egrep '^ssh ' | sort | uniq | sed 's/^ssh //'`;)" ssh
 
-complete -W "$(echo $(cat ~/.bash_history|egrep '^ssh '|sort|uniq|sed 's/^ssh //'))" ssh
-
-# User specific aliases and functions
-
-set -o noclobber
-#shopt -s no_empty_cmd_completion
 
 ### Add more colors
     [[ -x /usr/bin/dircolors ]] && {
@@ -57,10 +129,10 @@ export PAGER='most'
     alias ...='cd ../..;pwd'
     alias ....='cd ../../..;pwd'
     #alias la="ls -ashtF --color=auto"
-    alias la="lsd -lah"
-    alias lr="lsd -larh"
-    alias l="lsd -lah"
-    alias ll="lsd -lah"
+    alias la="ls -lah"
+    alias lr="ls -larh"
+    alias l="ls -lah"
+    alias ll="ls -lah"
     alias upd="sudo dnf update -y && sudo dnf upgrade -y"
     alias ins="sudo dnf install"
     alias rem="sudo dnf remove"
@@ -73,7 +145,8 @@ export PAGER='most'
     alias rm="rm -iv"
     alias which="type -all"
     alias top="sudo bpytop"
-export JAVA_HOME=/usr/lib/jvm/jre-openjdk/bin
-export PATH="$HOME/bin:$HOME/bin/sublime_text:$HOME/.local/bin:$PATH"
+    alias vim="nvim"
+
+export PATH="$HOME/bin:/home/fg/.local/bin:$PATH"
 
 PS1='\[\e[0;38;5;45m\]\u\[\e[0m\]@\[\e[0;91m\]\h\[\e[0m\]:\[\e[0m\][\[\e[0;1m\]\w\[\e[0m\]]\[\e[0;97m\]:\[\e[0m\]\$\[\e0 '
